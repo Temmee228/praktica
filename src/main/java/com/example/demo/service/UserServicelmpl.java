@@ -1,4 +1,4 @@
-package com.example.demo.Service;
+package com.example.demo.service;
 
 
 import com.example.demo.model.UserModel;
@@ -6,11 +6,14 @@ import com.example.demo.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
-public class UserServicelmpl implements UserService<UserModel> {
+public class UserServicelmpl implements UserService<UserModel>, UserDetailsService {
 
     private final UserRepository userRepository;
 
@@ -51,4 +54,8 @@ public class UserServicelmpl implements UserService<UserModel> {
     }
 
 
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return userRepository.findByUsername(username);
+    }
 }

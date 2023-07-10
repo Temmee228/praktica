@@ -1,18 +1,18 @@
-package com.example.demo.Controllers;
+package com.example.demo.сontrollers;
 
 
-import com.example.demo.Service.UserServicelmpl;
+import com.example.demo.service.UserServicelmpl;
 import com.example.demo.model.UserModel;
-import com.example.demo.repository.UserRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 
 @RestController
+@RequestMapping("/users")
+public
 class UserController {
 
     private final UserServicelmpl userServicelmpl;
