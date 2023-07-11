@@ -23,7 +23,7 @@ public class SecurityConfig {
     private UserServicelmpl userServicelmpl;
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(users()).passwordEncoder(bCryptPasswordEncoder());
+        auth.userDetailsService(userServicelmpl).passwordEncoder(bCryptPasswordEncoder());
     }
     @Bean
     protected SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {

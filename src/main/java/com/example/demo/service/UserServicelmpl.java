@@ -92,10 +92,10 @@ public class UserServicelmpl implements UserService<UserModel>, UserDetailsServi
                 user.setBanReason(banReason);
                 userRepository.save(user);
             } else {
-                throw new IllegalArgumentException("Only SCHOOLBOY and TEACHER users can be banned.");
+                throw new IllegalArgumentException("Только пользователи с ролью SCHOOLBOY и TEACHER могут быть забанены.");
             }
         } else {
-            throw new IllegalArgumentException("User not found.");
+            throw new IllegalArgumentException("Пользователь не найден.");
         }
     }
 
