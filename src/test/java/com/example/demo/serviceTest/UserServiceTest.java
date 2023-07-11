@@ -4,7 +4,6 @@ package com.example.demo.serviceTest;
 import com.example.demo.model.UserModel;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserServicelmpl;
-import org.apache.catalina.User;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -36,10 +35,10 @@ public class UserServiceTest {
                 testUser.setCity("ТестЯрослаль");
     }
 
-    @Before
+   /* @Before
     public void init() {
-        userService = new UserServicelmpl(userRepository);
-    }
+        userService = new UserServicelmpl(bCryptPasswordEncoder, userRepository);
+    }*/
 
     @Test
     public void updateTest() {

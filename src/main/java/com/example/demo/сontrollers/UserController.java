@@ -7,7 +7,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Collection;
+import java.util.List;
 
 
 @RestController
@@ -47,6 +53,50 @@ class UserController {
     }
 
 
+    @GetMapping("/name/{name}")
+    public List<UserModel> searchUsersByName(@PathVariable String name) {
+        return userServicelmpl.searchByName(name);
+    }
+
+    @GetMapping("/grade/{grade}")
+    public List<UserModel> searchByGrade(@PathVariable String grade) {
+        return userServicelmpl.searchByGrade(grade);
+    }
+
+    @GetMapping("/city/{city}")
+    public List<UserModel> searchByCity(@PathVariable String city) {
+        return userServicelmpl.searchByCity(city);
+    }
+
+
+    @GetMapping("/search/{name}/{surname}")
+    public List<UserModel> searchByName2(
+            @PathVariable String name,
+            @PathVariable String surname) {
+        return userServicelmpl.searchByName2(name, surname);
+    }
+    @GetMapping("/search/{name}/{surname}/{patronymic}")
+    public List<UserModel> searchByName(
+            @PathVariable String name,
+            @PathVariable String surname,
+            @PathVariable String patronymic) {
+        return userServicelmpl.searchByName(name, surname, patronymic);
+    }
+
+    @PostMapping("/ban/{username}")
+    public String banUser(@PathVariable("username") String username, @RequestBody String banReason) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
+        boolean hasSchoolboyOrTeacherRole = authorities.stream()
+                .map(GrantedAuthority::getAuthority)
+                .anyMatch(role -> role.equals("ROLE_ADMIN"));
+        if (hasSchoolboyOrTeacherRole) {
+            userServicelmpl.banUser(username, banReason);
+            return "Пользователь забанен успешно с причиной: " + banReason;
+        } else {
+            return "Только пользователь с ролью ADMIN может использовать эту функцию.";
+        }
+    }
 
 
 }
