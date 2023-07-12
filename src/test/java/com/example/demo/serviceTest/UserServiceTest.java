@@ -1,3 +1,4 @@
+/*
 
 package com.example.demo.serviceTest;
 
@@ -20,7 +21,7 @@ import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class UserServiceTest {
-   /* @Mock
+    @Mock
     private UserRepository userRepository;
 
     private UserServicelmpl userService;
@@ -58,5 +59,6 @@ public class UserServiceTest {
         assertEquals(resultUser.getName(),(userModelForUpdate.getName()));
         assertEquals(resultUser.getCity(),(userModelForUpdate.getCity()));
 
-    }*/
+    }
 }
+*/

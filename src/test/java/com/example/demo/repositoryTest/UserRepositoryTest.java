@@ -1,3 +1,4 @@
+/*
 package com.example.demo.repositoryTest;
 
 import com.example.demo.model.UserModel;
@@ -21,7 +22,7 @@ public class UserRepositoryTest {
     @Autowired
     private UserRepository userRepository;
 
-/*
+
     @Test
     public void findByUsername() {
         String username = "testUsername";
@@ -98,5 +99,6 @@ public class UserRepositoryTest {
         assertEquals(user1, result.get(0));
     }
 
-*/
+
 }
+*/
