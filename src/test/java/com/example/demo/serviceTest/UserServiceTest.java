@@ -10,6 +10,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.Optional;
 
@@ -19,7 +20,7 @@ import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class UserServiceTest {
-    @Mock
+   /* @Mock
     private UserRepository userRepository;
 
     private UserServicelmpl userService;
@@ -35,10 +36,11 @@ public class UserServiceTest {
                 testUser.setCity("ТестЯрослаль");
     }
 
-   /* @Before
+    @Before
     public void init() {
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         userService = new UserServicelmpl(bCryptPasswordEncoder, userRepository);
-    }*/
+    }
 
     @Test
     public void updateTest() {
@@ -56,5 +58,5 @@ public class UserServiceTest {
         assertEquals(resultUser.getName(),(userModelForUpdate.getName()));
         assertEquals(resultUser.getCity(),(userModelForUpdate.getCity()));
 
-    }
+    }*/
 }

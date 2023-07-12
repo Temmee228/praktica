@@ -69,20 +69,6 @@ class UserController {
     }
 
 
-    @GetMapping("/search/{name}/{surname}")
-    public List<UserModel> searchByName2(
-            @PathVariable String name,
-            @PathVariable String surname) {
-        return userServicelmpl.searchByName2(name, surname);
-    }
-    @GetMapping("/search/{name}/{surname}/{patronymic}")
-    public List<UserModel> searchByName(
-            @PathVariable String name,
-            @PathVariable String surname,
-            @PathVariable String patronymic) {
-        return userServicelmpl.searchByName(name, surname, patronymic);
-    }
-
     @PostMapping("/ban/{username}")
     public String banUser(@PathVariable("username") String username, @RequestBody String banReason) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -97,6 +83,7 @@ class UserController {
             return "Только пользователь с ролью ADMIN может использовать эту функцию.";
         }
     }
+
 
 
 }

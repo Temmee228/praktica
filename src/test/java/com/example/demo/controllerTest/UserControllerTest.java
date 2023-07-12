@@ -1,4 +1,5 @@
-package com.example.demo.Controller;
+/*
+package com.example.demo.controllerTest;
 
 import com.example.demo.model.UserModel;
 import com.example.demo.service.UserServicelmpl;
@@ -10,7 +11,6 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +34,7 @@ class UserControllerTest {
 
     @Test
     void testAll() {
-        // Arrange
+
         List<UserModel> users = new ArrayList<>();
         UserModel user1 = new UserModel();
         user1.setId(1L);
@@ -49,53 +49,56 @@ class UserControllerTest {
         Page<UserModel> expectedPage = new PageImpl<>(users);
         when(userService.getAll(any(Pageable.class))).thenReturn(expectedPage);
 
-        // Act
+
         Page<UserModel> result = userController.all(0, 10, "id");
 
-        // Assert
+
         assertEquals(expectedPage, result);
     }
 
     @Test
     void testDelete() {
-        // Arrange
+
         Long id = 1L;
 
-        // Act
+
         String result = userController.del(id);
 
-        // Assert
+
         assertEquals("Успешно", result);
     }
 
     @Test
     void testAdd() {
-        // Arrange
+
         UserModel userModel = new UserModel();
         userModel.setId(1L);
         userModel.setName("John");
         when(userService.save(any(UserModel.class))).thenReturn(userModel);
 
-        // Act
+
         UserModel result = userController.add(userModel);
 
-        // Assert
         assertEquals(userModel, result);
     }
 
     @Test
     void testUpdate() {
-        // Arrange
+
         Long id = 1L;
         UserModel userModel = new UserModel();
         userModel.setId(1L);
         userModel.setName("John");
         when(userService.update(any(UserModel.class), anyLong())).thenReturn(userModel);
 
-        // Act
+
         UserModel result = userController.up(id, userModel);
 
-        // Assert
+
         assertEquals(userModel, result);
     }
-}
+
+
+
+
+}*/

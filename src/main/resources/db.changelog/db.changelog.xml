@@ -7,14 +7,26 @@
     <changeSet id="1" author="Temmee">
         <preConditions onFail="MARK_RAN">
             <not>
-                <tableExists tableName="users" />
+                <tableExists tableName="users_model" />
             </not>
         </preConditions>
         <createTable tableName="users">
-            <column name="id" type="INT">
+            <column name="id" type="BIGINT">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="name" type="VARCHAR(100)"/>
+            <column name="surname" type="VARCHAR(100)"/>
+            <column name="patronymic" type="VARCHAR(100)"/>
+            <column name="grade" type="VARCHAR(100)"/>
+            <column name="city" type="VARCHAR(100)"/>
+            <column name="mail" type="VARCHAR(100)"/>
+            <column name="number" type="VARCHAR(100)"/>
+            <column name="school" type="VARCHAR(100)"/>
+            <column name="username" type="VARCHAR(100)"/>
+            <column name="password" type="VARCHAR(100)"/>
+            <column name="role" type="VARCHAR(100)"/>
+            <column name="banned" type="boolean"/>
+            <column name="ban_reason" type="VARCHAR(100)"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>

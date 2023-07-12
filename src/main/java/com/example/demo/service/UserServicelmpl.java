@@ -74,13 +74,6 @@ public class UserServicelmpl implements UserService<UserModel>, UserDetailsServi
         return userRepository.findByCity(city);
     }
 
-    public List<UserModel> searchByName(String name, String surname, String patronymic) {
-        return userRepository.findByName(name, surname, patronymic);
-    }
-
-    public List<UserModel> searchByName2(String name, String surname) {
-        return userRepository.findByName2(name, surname);
-    }
 
     public void banUser(String username, String banReason) {
         Optional<UserModel> optionalUser = Optional.ofNullable(userRepository.findByUsername(username));
